@@ -1,0 +1,33 @@
+{
+  "vagas": [
+    {
+      "id": 1,
+      "nome": "Desenvolver FrontEnd Jr",
+      "foto": "img1.jpg",
+      "descricao": "Trabalhar com HTML, CSS e JS",
+      "salario": 4000
+    },
+    {
+      "id": 2,
+      "nome": "Desenvolver BackEnd Pleno",
+      "foto": "img1.jpg",
+      "descricao": "Trabalhar com Desenvolvimento Web",
+      "salario": 7000
+    },
+    {
+      "id": 3,
+      "nome": "Desenvolver Fullstack Senior",
+      "foto": "img1.jpg",
+      "descricao": "Trabalhar com Desenvolvimento Web",
+      "salario": 10000
+    },
+    {
+      "id": "01",
+      "nome": "Dev. Front",
+      "foto": "img1.jpg",
+      "descricao": "Ser um dev bão",
+      "salario": "1400"
+    }
+  ],
+  "curriculos": []
+}

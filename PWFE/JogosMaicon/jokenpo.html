@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, orientation=landscape">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/jankempon.css">
+    <link rel="stylesheet" href="styles/fullscreen.css">
+    <title>Games</title>
+</head>
+
+<body>
+    <button type="submit" id="botaotelacheia" class="telacheia">FULLSCREEN</button>
+    <div class="jankenpon">
+        <div class="texto">
+            <p>JANKENPON</p>
+        </div>
+        <div class="game">
+            <div class="player01">
+                <img src="img/pedra.png" alt="Imagem 1" class="papel" id="pedraimg">
+                <img src="img/papel.png" alt="Imagem 2" class="tesoura" id="papelimg">
+                <img src="img/tesoura.png" alt="Imagem 3" class="pedra" id="tesouraimg">
+            </div>
+            <div class="x">
+                <p>X</p>
+            </div>
+            <div class="player02">
+                <img src="img/pedra.png" alt="" class="papel" id="pedraimg2">
+                <img src="img/papel.png" alt="" class="tesoura" id="papelimg2">
+                <img src="img/tesoura.png" alt="" class="pedra" id="tesouraimg2">
+            </div>
+        </div>
+        <div class="jokemRodape">
+            <div class="selecao">
+                <button id="botao1"><img src="img/pedra.png" alt=""></button>
+                <button id="botao2"><img src="img/papel.png" alt=""></button>
+                <button id="botao3"><img src="img/tesoura.png" alt=""></button>
+            </div>
+            <div class="texto">
+                <p>GANHOU</p>
+                <!-- <p>PERDEU</p> -->
+            </div>
+            <div class="pontuacao">
+                <div>
+                    <p>Player-</p>
+                    <p class="r1">0</p>
+                </div>
+                <div>
+                    <p>Maquina-</p>
+                    <p class="r2">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jankenpon.js"></script>
+    <script src="js/fullscreen.js"></script>
+</body>
+
+</html>

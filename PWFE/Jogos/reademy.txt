@@ -1,0 +1,21 @@
+A função atualizarPlacar() é definida para atualizar os elementos HTML que exibem o placar do jogo com o número de vitórias para o jogador (J1) e a CPU.
+
+Elementos HTML são obtidos por meio de seus IDs, como mensagemVitoria, mensagemEmpate, mensagemDerrota, contadorJOGADOR, contadorCPU, e são armazenados em variáveis.
+
+Os elementos de mensagem (Vitória, Empate, Derrota) são inicialmente ocultados definindo seus estilos display para "none".
+
+Três variáveis são inicializadas: cpuP para rastrear o número de vitórias da CPU, J1P para rastrear o número de vitórias do jogador J1 e eP para rastrear o número de empates.
+
+Os elementos de exibição do placar são atualizados com os valores iniciais (zero) definindo o textContent dos elementos contadorJOGADOR e contadorCPU.
+
+A seguir, o código define três funções: Pedra(), Papel(), e Tesoura(). Cada uma delas representa a escolha do jogador (Pedra, Papel ou Tesoura) e executa a lógica do jogo:
+
+Cada função gera um número aleatório entre 0 e 9 para simular a escolha da CPU.
+
+Em seguida, as imagens dos elementos imgCPU e imgJogador são atualizadas para mostrar a escolha da CPU e do jogador, respectivamente.
+
+Com base na escolha da CPU e na escolha do jogador, a função determina o resultado do jogo (vitória, empate ou derrota).
+
+A mensagem apropriada (Vitória, Empate ou Derrota) é exibida ajustando os estilos dos elementos de mensagem correspondentes.
+
+O placar é atualizado chamando a função atualizarPlacar(), que atualiza os valores exibidos nos elementos contadorJOGADOR e contadorCPU.

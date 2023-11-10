@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PEDRA PAPEL TESOURA</title>
+</head>
+
+<body>
+    <div class="jokenpo">
+        <div class="texo">
+            <h1>JOKENPÔ</h1>
+        </div>
+        <div class="resultado">
+            <div class="jogador">
+                <img id="imgJogador" src="" alt="">
+            </div>
+            <div class="vs">
+
+                <h1>VS</h1>
+            </div>
+            <div class="CPU">
+                <img id="imgCPU" src="" alt="">
+            </div>
+        </div>
+        <br><br>
+        <div class="painel">
+            <div class="jogador">
+                <img src="img/papel.png" onclick="Papel()">
+                <img src="img/pedra.png" onclick="Pedra()">
+                <img src="img/tesoura.png" onclick="Tesoura()">
+            </div>
+            <h2>RESULTADO:</h2>
+            <div id="mensagemVitoria" class="mensagem">VITORIA!</div>
+            <div id="mensagemEmpate" class="mensagem">EMPATE!</div>
+            <div id="mensagemDerrota" class="mensagem">DERROTA!</div>
+            <div class="placar">
+                <h2>PLACAR</h2>
+                <div id="contadorJOGADOR" class="mensagem"></div>
+                <div id="contadorCPU" class="mensagem"></div>
+            </div>
+        </div>
+    </div>
+    <script src="scriptppt.js"></script>
+</body>
+
+</html>
