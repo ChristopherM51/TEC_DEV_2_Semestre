@@ -1,7 +1,0 @@
-create table cliente(
-id int (4) auto_increment not null,
-name varchar(100) not null,
-email varchar (250) not null,
-endereco varchar(250) not null,
-dataNasc date not null,
-primary key (id));
