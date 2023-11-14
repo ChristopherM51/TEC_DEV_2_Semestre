@@ -34,14 +34,14 @@ public class CarrosControl {
         for (Carros carro : carros) {
             // Adiciona os dados de cada carro como uma nova linha na tabela Swing
             tableModel.addRow(new Object[] {
-                carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(), carro.getValor() });
+                carro.getPlaca(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getValor() });
         }
     }
 
     //
     // Método para cadastrar um novo carro no banco de dados
     public void cadastrar(String placa, String marca, String modelo, int ano, double valor) {
-        new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
+        new CarrosDAO().cadastrar(placa, marca, modelo, ano, valor);
         //
         // Chama o método de cadastro no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
@@ -50,7 +50,7 @@ public class CarrosControl {
     //
     // Método para atualizar os dados de um carro no banco de dados
     public void atualizar(String placa, String marca, String modelo, int ano, double valor) {
-        new CarrosDAO().atualizar(marca, modelo, ano, placa, valor);
+        new CarrosDAO().atualizar(placa, marca, modelo, ano, valor);
         // Chama o método de atualização no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a atualização
     }
@@ -62,4 +62,5 @@ public class CarrosControl {
         // Chama o método de exclusão no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a exclusão
     }
+
 }

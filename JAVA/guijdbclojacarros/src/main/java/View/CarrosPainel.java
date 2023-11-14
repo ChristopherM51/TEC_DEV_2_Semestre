@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -12,8 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import Connection.CarrosDAO;
+import Controller.CarrosControl;
 
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import Model.Carros;
 
@@ -60,7 +65,7 @@ public class CarrosPainel extends JPanel {
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
         tableModel = new DefaultTableModel(new Object[][] {},
-                new String[] { "Marca", "Modelo", "Ano", "Placa", "Valor" });
+                new String[] { "Placa", "Marca", "Modelo", "Ano", "Valor" });
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
@@ -69,6 +74,77 @@ public class CarrosPainel extends JPanel {
         // incluindo elementos do banco na criação do painel
         atualizarTabela();
         // tratamento de eventos(construtor)
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent evt) {
+                linhaSelecionada = table.rowAtPoint(evt.getPoint());
+                if (linhaSelecionada != -1) {
+                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 2));
+                    carAnoField.setText((String) table.getValueAt(linhaSelecionada, 3));
+                    carValorField.setText((String) table.getValueAt(linhaSelecionada, 4));
+                }
+            }
+        });
+
+        CarrosControl operacoes = new CarrosControl(carros, tableModel, table);
+
+        // tratamento para botão cadastrar
+        cadastrar.addActionListener(e -> {
+            operacoes.cadastrar(carPlacaField.getText(),
+                    carMarcaField.getText(),
+                    carModeloField.getText(),
+                    Integer.parseInt(carAnoField.getText()),
+                    Double.parseDouble(carValorField.getText()));
+            carPlacaField.setText("");
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carValorField.setText("");
+        });
+
+        // tratamento do botão editar
+
+        editar.addActionListener(e -> {
+            operacoes.atualizar(carPlacaField.getText(),
+                    carMarcaField.getText(),
+                    carModeloField.getText(),
+                    Integer.parseInt(carAnoField.getText()),
+                    Double.parseDouble(carValorField.getText()));
+            carPlacaField.setText("");
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carValorField.setText("");
+        });
+
+        // tratamento do botão apagar
+
+        apagar.addActionListener(e -> {
+            Object[] options = { "NÃO", "SIM" };
+            int acao = JOptionPane.showOptionDialog(
+                    null,
+                    "Tem Certeza que deseja Excluir?",
+                    "Confirmação",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            if (acao == 1) {
+                operacoes.apagar(carPlacaField.getText());
+                carPlacaField.setText("");
+                carMarcaField.setText("");
+                carModeloField.setText("");
+                carAnoField.setText("");
+                carValorField.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ação cancelada");
+            }
+
+        });
     }
 
     // métodos(atualizar tabela)

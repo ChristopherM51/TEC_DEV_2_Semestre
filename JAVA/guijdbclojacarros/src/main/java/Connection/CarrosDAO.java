@@ -25,7 +25,7 @@ public class CarrosDAO {
 
     // criar Tabela
     public void criaTabela() {
-        String sql = "CREATE TABLE IF NOT EXISTS carros_lojacarros (MARCA VARCHAR(255),MODELO VARCHAR(255),ANO INTEGER,PLACA VARCHAR(255) PRIMARY KEY, VALOR NUMERIC)";
+        String sql = "CREATE TABLE IF NOT EXISTS carros_lojacarros (PLACA VARCHAR(255) PRIMARY KEY, MARCA VARCHAR(255), MODELO VARCHAR(255),ANO INTEGER, VALOR NUMERIC)";
         try (Statement stmt = this.connection.createStatement()) {
             stmt.execute(sql);
             System.out.println("Tabela criada com sucesso.");
@@ -73,7 +73,7 @@ public class CarrosDAO {
     }
 
     // Cadastrar Carro no banco
-    public void cadastrar(String marca, String modelo, int ano, String placa, double valor) {
+    public void cadastrar(String placa, String marca, String modelo, int ano, double valor) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para cadastrar na tabela
         String sql = "INSERT INTO carros_lojacarros (placa, marca, modelo, ano, valor) VALUES (?, ?, ?, ?, ?)";
@@ -95,7 +95,7 @@ public class CarrosDAO {
     }
 
     // Atualizar dados no banco
-    public void atualizar(String marca, String modelo, int ano, String placa, double valor) {
+    public void atualizar(String placa, String marca, String modelo, int ano,  double valor) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para atualizar dados pela placa
         String sql = "UPDATE carros_lojacarros SET marca = ?, modelo = ?, ano = ?, valor = ? WHERE placa = ?";
