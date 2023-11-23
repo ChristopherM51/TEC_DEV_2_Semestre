@@ -12,22 +12,22 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import Connection.CarrosDAO;
-import Controller.CarrosControl;
+import Connection.ClientesDAO;
+import Controller.ClientesControl;
 
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Model.Carros;
+import Model.Clientes;
 
-public class CarrosPainel extends JPanel {
+public class ClientesPainel extends JPanel {
     // Atributos(componentes)
     private JButton cadastrar, apagar, editar;
     private JTextField carMarcaField, carModeloField, carAnoField, carPlacaField,
             carValorField;
-    private List<Carros> carros;
+    private List<Clientes> carros;
     private JTable table;
     private DefaultTableModel tableModel;
     private int linhaSelecionada = -1;

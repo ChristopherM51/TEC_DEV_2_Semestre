@@ -6,20 +6,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Connection.CarrosDAO;
-import Model.Carros;
+import Connection.ClientesDAO;
+import Model.Clientes;
 
-public class CarrosControl {
+public class ClientesControl {
     //
     // atributos
-    private List<Carros> carros;
+    private List<Clientes> clientes;
     private DefaultTableModel tableModel;
     private JTable table;
 
     //
     // contrutor
-    public CarrosControl(List<Carros> carros, DefaultTableModel tableModel, JTable table) {
-        this.carros = carros;
+    public ClientesControl(List<Clientes> clientes, DefaultTableModel tableModel, JTable table) {
+        this.clientes = clientes;
         this.tableModel = tableModel;
         this.table = table;
     }
@@ -30,22 +30,23 @@ public class CarrosControl {
     // Método para atualizar a tabela de exibição com dados do banco de dados
     private void atualizarTabela() {
         tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela
-        carros = new CarrosDAO().listarTodos();
-        // Obtém os carros atualizados do banco de dados
-        for (Carros carro : carros) {
-            // Adiciona os dados de cada carro como uma nova linha na tabela Swing
+        clientes = new ClientesDAO().listarTodos();
+        // Obtém os clientes atualizados do banco de dados
+        for (Clientes clientes : clientes) {
+            // Adiciona os dados de cada clientes como uma nova linha na tabela Swing
             tableModel.addRow(new Object[] {
-                    carro.getPlaca(), carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getValor() });
+                    clientes.getNome(), clientes.getCpf(), clientes.getEmail(), clientes.getTelefone(), 
+                    clientes.getEndereco(), clientes.getNumeroCasa(), clientes.getDataNascimento() });
         }
     }
 
     //
-    // Método para cadastrar um novo carro no banco de dados
-    public void cadastrar(String placa, String marca, String modelo, int ano, double valor) {
+    // Método para cadastrar um novo clientes no banco de dados
+    public void cadastrar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
         Object[] options = { "NÃO", "SIM" };
         int acao = JOptionPane.showOptionDialog(
                 null,
-                "Deseja cadastrar novo veiculo?",
+                "Deseja cadastrar novo cliente?",
                 "Confirmação",
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.WARNING_MESSAGE,
@@ -54,7 +55,7 @@ public class CarrosControl {
                 options[0]);
 
         if (acao == 1) {
-            new CarrosDAO().cadastrar(placa, marca, modelo, ano, valor);
+            new ClientesDAO().cadastrar(nome, cpf, email, telefone, endereco, numeroCasa, dataNascimento);
             //
             // Chama o método de cadastro no banco de dados
             atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
@@ -65,20 +66,20 @@ public class CarrosControl {
     }
 
     //
-    // Método para atualizar os dados de um carro no banco de dados
-    public void atualizar(String placa, String marca, String modelo, int ano, double valor) {
-        new CarrosDAO().atualizar(placa, marca, modelo, ano, valor);
+    // Método para atualizar os dados de um clientes no banco de dados
+    public void atualizar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
+        new ClientesDAO().atualizar(nome, cpf, email, telefone, endereco, numeroCasa, dataNascimento);
         // Chama o método de atualização no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a atualização
     }
 
     //
-    // Método para apagar um carro do banco de dados
-    public void apagar(String placa) {
+    // Método para apagar um clientes do banco de dados
+    public void apagar(int cpf) {
         Object[] options = { "NÃO", "SIM" };
         int acao = JOptionPane.showOptionDialog(
                 null,
-                "Tem Certeza que deseja Excluir?",
+                "Tem Certeza de que deseja excluir o cadastro desse cliente?",
                 "Confirmação",
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.WARNING_MESSAGE,
@@ -87,7 +88,7 @@ public class CarrosControl {
                 options[0]);
 
         if (acao == 1) {
-            new CarrosDAO().apagar(placa);
+            new ClientesDAO().apagar(cpf);
             // Chama o método de exclusão no banco de dados
             atualizarTabela(); // Atualiza a tabela de exibição após a exclusão
             JOptionPane.showMessageDialog(null, "Cadastro excluido");
