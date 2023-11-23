@@ -25,36 +25,36 @@ import Model.Clientes;
 public class ClientesPainel extends JPanel {
     // Atributos(componentes)
     private JButton cadastrar, apagar, editar;
-    private JTextField carMarcaField, carModeloField, carAnoField, carPlacaField,
-            carValorField;
+    private JTextField cliNomeField, cliCpfField, cliEmailField, cliTelefoneField,
+            cliEnderecoField, ;
     private List<Clientes> carros;
     private JTable table;
     private DefaultTableModel tableModel;
     private int linhaSelecionada = -1;
 
     // Construtor(GUI-JPanel)
-    public CarrosPainel() {
+    public ClientesPainel() {
         super();
         // entrada de dados
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        add(new JLabel("Cadastro Carros"));
+        add(new JLabel("Cadastro Clientes"));
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(5, 2));
         inputPanel.add(new JLabel("Placa"));
-        carPlacaField = new JTextField(20);
-        inputPanel.add(carPlacaField);
+        cliTelefoneField = new JTextField(20);
+        inputPanel.add(cliTelefoneField);
         inputPanel.add(new JLabel("Marca"));
-        carMarcaField = new JTextField(20);
-        inputPanel.add(carMarcaField);
+        cliNomeField = new JTextField(20);
+        inputPanel.add(cliNomeField);
         inputPanel.add(new JLabel("Modelo"));
-        carModeloField = new JTextField(20);
-        inputPanel.add(carModeloField);
+        cliCpfField = new JTextField(20);
+        inputPanel.add(cliCpfField);
         inputPanel.add(new JLabel("Ano"));
-        carAnoField = new JTextField(20);
-        inputPanel.add(carAnoField);
+        cliEmailField = new JTextField(20);
+        inputPanel.add(cliEmailField);
         inputPanel.add(new JLabel("Valor"));
-        carValorField = new JTextField(20);
-        inputPanel.add(carValorField);
+        cliEnderecoField = new JTextField(20);
+        inputPanel.add(cliEnderecoField);
         add(inputPanel);
         JPanel botoes = new JPanel();
         botoes.add(cadastrar = new JButton("Cadastrar"));
@@ -79,11 +79,11 @@ public class ClientesPainel extends JPanel {
             public void mouseClicked(MouseEvent evt) {
                 linhaSelecionada = table.rowAtPoint(evt.getPoint());
                 if (linhaSelecionada != -1) {
-                    carPlacaField.setText((String) table.getValueAt(linhaSelecionada, 0));
-                    carMarcaField.setText((String) table.getValueAt(linhaSelecionada, 1));
-                    carModeloField.setText((String) table.getValueAt(linhaSelecionada, 2));
-                    carAnoField.setText(String.valueOf(table.getValueAt(linhaSelecionada, 3 )));
-                    carValorField.setText(String.valueOf( table.getValueAt(linhaSelecionada, 4)));
+                    cliTelefoneField.setText((String) table.getValueAt(linhaSelecionada, 0));
+                    cliNomeField.setText((String) table.getValueAt(linhaSelecionada, 1));
+                    cliCpfField.setText((String) table.getValueAt(linhaSelecionada, 2));
+                    cliEmailField.setText(String.valueOf(table.getValueAt(linhaSelecionada, 3 )));
+                    cliEnderecoField.setText(String.valueOf( table.getValueAt(linhaSelecionada, 4)));
                 }
             }
         });
@@ -92,43 +92,43 @@ public class ClientesPainel extends JPanel {
 
         // tratamento para botão cadastrar
         cadastrar.addActionListener(e -> {
-            operacoes.cadastrar(carPlacaField.getText(),
-                    carMarcaField.getText(),
-                    carModeloField.getText(),
-                    Integer.parseInt(carAnoField.getText()),
-                    Double.parseDouble(carValorField.getText()));
-            carPlacaField.setText("");
-            carMarcaField.setText("");
-            carModeloField.setText("");
-            carAnoField.setText("");
-            carValorField.setText("");
+            operacoes.cadastrar(cliTelefoneField.getText(),
+                    cliNomeField.getText(),
+                    cliCpfField.getText(),
+                    Integer.parseInt(cliEmailField.getText()),
+                    Double.parseDouble(cliEnderecoField.getText()));
+            cliTelefoneField.setText("");
+            cliNomeField.setText("");
+            cliCpfField.setText("");
+            cliEmailField.setText("");
+            cliEnderecoField.setText("");
         });
 
         // tratamento do botão editar
 
         editar.addActionListener(e -> {
-            operacoes.atualizar(carPlacaField.getText(),
-                    carMarcaField.getText(),
-                    carModeloField.getText(),
-                    Integer.parseInt(carAnoField.getText()),
-                    Double.parseDouble(carValorField.getText()));
-            carPlacaField.setText("");
-            carMarcaField.setText("");
-            carModeloField.setText("");
-            carAnoField.setText("");
-            carValorField.setText("");
+            operacoes.atualizar(cliTelefoneField.getText(),
+                    cliNomeField.getText(),
+                    cliCpfField.getText(),
+                    Integer.parseInt(cliEmailField.getText()),
+                    Double.parseDouble(cliEnderecoField.getText()));
+            cliTelefoneField.setText("");
+            cliNomeField.setText("");
+            cliCpfField.setText("");
+            cliEmailField.setText("");
+            cliEnderecoField.setText("");
         });
 
         // tratamento do botão apagar
 
         apagar.addActionListener(e -> {
            
-                operacoes.apagar(carPlacaField.getText());
-                carPlacaField.setText("");
-                carMarcaField.setText("");
-                carModeloField.setText("");
-                carAnoField.setText("");
-                carValorField.setText("");
+                operacoes.apagar(cliTelefoneField.getText());
+                cliTelefoneField.setText("");
+                cliNomeField.setText("");
+                cliCpfField.setText("");
+                cliEmailField.setText("");
+                cliEnderecoField.setText("");
             
 
         });
