@@ -36,13 +36,13 @@ public class ClientesControl {
             // Adiciona os dados de cada clientes como uma nova linha na tabela Swing
             tableModel.addRow(new Object[] {
                     clientes.getNome(), clientes.getCpf(), clientes.getEmail(), clientes.getTelefone(), 
-                    clientes.getEndereco(), clientes.getNumeroCasa(), clientes.getDataNascimento() });
+                    clientes.getEndereco(), clientes.getNumero(), clientes.getDataNascimento() });
         }
     }
 
     //
     // Método para cadastrar um novo clientes no banco de dados
-    public void cadastrar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
+    public void cadastrar(String nome, int cpf, String email, int telefone, String endereco, int numero, int dataNascimento) {
         Object[] options = { "NÃO", "SIM" };
         int acao = JOptionPane.showOptionDialog(
                 null,
@@ -55,7 +55,7 @@ public class ClientesControl {
                 options[0]);
 
         if (acao == 1) {
-            new ClientesDAO().cadastrar(nome, cpf, email, telefone, endereco, numeroCasa, dataNascimento);
+            new ClientesDAO().cadastrar(nome, cpf, email, telefone, endereco, numero, dataNascimento);
             //
             // Chama o método de cadastro no banco de dados
             atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
@@ -67,8 +67,8 @@ public class ClientesControl {
 
     //
     // Método para atualizar os dados de um clientes no banco de dados
-    public void atualizar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
-        new ClientesDAO().atualizar(nome, cpf, email, telefone, endereco, numeroCasa, dataNascimento);
+    public void atualizar(String nome, int cpf, String email, int telefone, String endereco, int numero, int dataNascimento) {
+        new ClientesDAO().atualizar(nome, cpf, email, telefone, endereco, numero, dataNascimento);
         // Chama o método de atualização no banco de dados
         atualizarTabela(); // Atualiza a tabela de exibição após a atualização
     }

@@ -8,16 +8,16 @@ public class Clientes {
     private String email;
     private int telefone;
     private String endereco;
-    private int numeroCasa;
+    private int numero;
     private int dataNascimento ;
      // construtor
-    public Clientes(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
+    public Clientes(String nome, int cpf, String email, int telefone, String endereco, int numero, int dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.numeroCasa = numeroCasa;
+        this.numero = numero;
         this.dataNascimento = dataNascimento;
     }
     // getters and setters
@@ -51,11 +51,11 @@ public class Clientes {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    public int getNumeroCasa() {
-        return numeroCasa;
+    public int getNumero() {
+        return numero;
     }
-    public void setNumeroCasa(int numeroCasa) {
-        this.numeroCasa = numeroCasa;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
     public int getDataNascimento() {
         return dataNascimento;

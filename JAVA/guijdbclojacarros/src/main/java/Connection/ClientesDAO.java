@@ -60,7 +60,7 @@ public class ClientesDAO {
                         rs.getString("email"),
                         rs.getInt("telefone"),
                         rs.getString("endereco"),
-                        rs.getInt("numeroCasa"),
+                        rs.getInt("numero"),
                         rs.getInt("dataNascimento"));
                 clientes.add(cliente);// Adiciona o objeto Clientes à lista de clientes
             }
@@ -75,7 +75,7 @@ public class ClientesDAO {
     }
 
     // Cadastrar Cliente no banco
-    public void cadastrar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
+    public void cadastrar(String nome, int cpf, String email, int telefone, String endereco, int numero, int dataNascimento) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para cadastrar na tabela
         String sql = "INSERT INTO clientes_lojacarros (nome, cpf, email, telefone, endereco, numero, data_nasc) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -87,7 +87,7 @@ public class ClientesDAO {
             stmt.setString(3, email);
             stmt.setInt(4, telefone);
             stmt.setString(5, endereco);
-            stmt.setInt(6, numeroCasa);
+            stmt.setInt(6, numero);
             stmt.setInt(7, dataNascimento);
             stmt.executeUpdate();
             System.out.println("Dados inseridos com sucesso");
@@ -99,7 +99,7 @@ public class ClientesDAO {
     }
 
     // Atualizar dados no banco
-    public void atualizar(String nome, int cpf, String email, int telefone, String endereco, int numeroCasa, int dataNascimento) {
+    public void atualizar(String nome, int cpf, String email, int telefone, String endereco, int numero, int dataNascimento) {
         PreparedStatement stmt = null;
         // Define a instrução SQL parametrizada para atualizar dados pelo cpf
         String sql = "UPDATE clientes_lojacarros SET nome = ?, cpf = ?, email = ?, telefone = ?, endereco = ?, numero = ?, data_nasc = ? WHERE cpf = ?";
@@ -111,7 +111,7 @@ public class ClientesDAO {
             stmt.setString(3, email);
             stmt.setInt(4, telefone);
             stmt.setString(5, endereco);
-            stmt.setInt(6, numeroCasa);
+            stmt.setInt(6, numero);
             stmt.setInt(7, dataNascimento);
             stmt.executeUpdate();
             System.out.println("Dados atualizados com sucesso");
