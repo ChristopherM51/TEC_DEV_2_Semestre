@@ -67,7 +67,7 @@ public class ClientesPainel extends JPanel {
         botoes.add(editar = new JButton("Editar"));
         botoes.add(apagar = new JButton("Apagar"));
         add(botoes);
-        // tabela de carros
+        // tabela de clientes
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
         tableModel = new DefaultTableModel(new Object[][] {},
@@ -140,7 +140,7 @@ public class ClientesPainel extends JPanel {
         // tratamento do botão apagar
 
         apagar.addActionListener(e -> {
-            operacoes.apagar(cliCpfField.getText());
+            operacoes.apagar(Integer.parseInt(cliCpfField.getText()));
             cliNomeField.setText("");
             cliCpfField.setText("");
             cliEmailField.setText("");
@@ -155,12 +155,12 @@ public class ClientesPainel extends JPanel {
     // métodos(atualizar tabela)
     private void atualizarTabela() {
         tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela
-        carros = new ClientesDAO().listarTodos();
-        // Obtém os carros atualizados do banco de dados
-        for (Clientes carro : carros) {
-            // Adiciona os dados de cada carro como uma nova linha na tabela Swing
+        clientes = new ClientesDAO().listarTodos();
+        // Obtém os clientes atualizados do banco de dados
+        for (Clientes cliente : clientes) {
+            // Adiciona os dados de cada cliente como uma nova linha na tabela Swing
             tableModel.addRow(new Object[] {
-                    carro.getNome(), carro.getCpf(), carro.getEmail(), carro.getTelefone(), carro.getEndereco() });
+                    cliente.getNome(), cliente.getCpf(), cliente.getEmail(), cliente.getTelefone(), cliente.getEndereco(), cliente.getNumero(), cliente.getDataNascimento() });
         }
     }
 
