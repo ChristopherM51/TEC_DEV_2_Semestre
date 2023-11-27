@@ -39,7 +39,7 @@ public class ClientesPainel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(new JLabel("Cadastro Clientes"));
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(5, 2));
+        inputPanel.setLayout(new GridLayout(7, 2));
         inputPanel.add(new JLabel("Nome"));
         cliNomeField = new JTextField(20);
         inputPanel.add(cliNomeField);

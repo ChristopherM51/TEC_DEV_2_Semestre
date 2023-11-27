@@ -25,7 +25,7 @@ public class ClientesDAO {
 
     // criar Tabela
     public void criaTabela() {
-        String sql = "CREATE TABLE IF NOT EXISTS clientes_lojacarros (NOME VARCHAR(255) , CPF NUMERIC PRIMARE KEY, EMAIL VARCHAR(255), TELEFONE NUMERIC, ENDERECO VARCHAR(255), NUMERO NUMERIC, DATA_NASC NUMERIC)";
+        String sql = "CREATE TABLE IF NOT EXISTS clientes_lojacarros (NOME VARCHAR(255) , CPF NUMERIC PRIMARY KEY, EMAIL VARCHAR(255), TELEFONE NUMERIC, ENDERECO VARCHAR(255), NUMERO NUMERIC, DATA_NASC NUMERIC)";
         try (Statement stmt = this.connection.createStatement()) {
             stmt.execute(sql);
             System.out.println("Tabela criada com sucesso.");
@@ -61,7 +61,7 @@ public class ClientesDAO {
                         rs.getInt("telefone"),
                         rs.getString("endereco"),
                         rs.getInt("numero"),
-                        rs.getInt("dataNascimento"));
+                        rs.getInt("data_Nasc"));
                 clientes.add(cliente);// Adiciona o objeto Clientes à lista de clientes
             }
         } catch (SQLException ex) {

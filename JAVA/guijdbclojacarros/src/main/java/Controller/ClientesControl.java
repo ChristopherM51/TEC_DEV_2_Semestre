@@ -32,11 +32,11 @@ public class ClientesControl {
         tableModel.setRowCount(0); // Limpa todas as linhas existentes na tabela
         clientes = new ClientesDAO().listarTodos();
         // Obtém os clientes atualizados do banco de dados
-        for (Clientes clientes : clientes) {
+        for (Clientes cliente : clientes) {
             // Adiciona os dados de cada clientes como uma nova linha na tabela Swing
             tableModel.addRow(new Object[] {
-                    clientes.getNome(), clientes.getCpf(), clientes.getEmail(), clientes.getTelefone(), 
-                    clientes.getEndereco(), clientes.getNumero(), clientes.getDataNascimento() });
+                    cliente.getNome(), cliente.getCpf(), cliente.getEmail(), cliente.getTelefone(), 
+                    cliente.getEndereco(), cliente.getNumero(), cliente.getDataNascimento() });
         }
     }
 
@@ -58,8 +58,8 @@ public class ClientesControl {
             new ClientesDAO().cadastrar(nome, cpf, email, telefone, endereco, numero, dataNascimento);
             //
             // Chama o método de cadastro no banco de dados
-            atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
             JOptionPane.showMessageDialog(null, "Cadastro concluido com sucesso");
+            atualizarTabela(); // Atualiza a tabela de exibição após o cadastro
         } else {
             JOptionPane.showMessageDialog(null, "Cadastro cancelado");
         }

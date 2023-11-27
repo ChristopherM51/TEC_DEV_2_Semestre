@@ -15,7 +15,6 @@ public class CarrosControl {
     private List<Carros> carros;
     private DefaultTableModel tableModel;
     private JTable table;
-
     //
     // contrutor
     public CarrosControl(List<Carros> carros, DefaultTableModel tableModel, JTable table) {
