@@ -87,7 +87,7 @@ public class VendasPainel extends JPanel {
         // Cria o banco de dados caso não tenha sido criado
         new CarrosDAO().criaTabela();
         // incluindo elementos do banco na criação do painel
-        atualizarTabela();
+       // atualizarTabela();
 
     //     // ERROS ABAIXO - EXCLUIR CODIGOS PARA RODAR
     //     // ERROS ABAIXO - EXCLUIR CODIGOS PARA RODAR
@@ -192,4 +192,5 @@ public class VendasPainel extends JPanel {
     //         });
     //     }
     // }
+}
 }
