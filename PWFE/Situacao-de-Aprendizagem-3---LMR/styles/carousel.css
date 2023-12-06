@@ -1,0 +1,31 @@
+.carroussel {
+    margin-top: 5px;
+    max-width: 90%;
+}
+
+.gallery {
+    background: black;
+}
+
+.gallery-cell {
+    width: 66%;
+    height: 200px;
+    margin-right: 10px;
+    background: rgb(19, 88, 19);
+    counter-increment: gallery-cell;
+}
+
+.carroussel img {
+    width: 100%;
+    height: 100%;
+}
+
+/* NUMEROS */
+.gallery-cell:before { 
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+}

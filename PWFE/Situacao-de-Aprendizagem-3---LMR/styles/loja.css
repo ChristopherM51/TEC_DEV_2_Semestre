@@ -1,0 +1,83 @@
+.filtros {
+    font: 1em sans-serif;
+    color: white;
+    min-width: 170px;
+    height: 450px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    justify-content: left;
+    border-radius: 5px;
+}
+.filtros h3 {
+    text-align: center;
+}
+.produtos {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 5px;
+    /* overflow: hidden; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.produto {
+    background-color: var(--tertiary-color);
+    border-width: 3px;
+    border-style: solid;
+    border-color: #000;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.produto img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+.produto h5 {
+    margin: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: large;
+}
+.produto h4 {
+        margin: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: large;
+}
+
+.produto button {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    font-weight: bold;
+    font-size: large;
+    &:hover {
+        background-color: #6ebbbb;
+        & p {
+            color: var(--text-color);
+        }
+    } &:active {
+        background-color: var(--primary-color);
+    }
+}
+
+.content {
+    background-color: rgb(206, 241, 237);
+    padding: 15px;
+    margin-top: 130px;
+    max-width: 1300px;
+    width: 100%;
+    align-self: center;
+    border-radius: 10px;
+    display: flex;
+}
